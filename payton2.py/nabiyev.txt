@@ -1,0 +1,16 @@
+if file_name.endswith('.docx'):
+                    doc = Document(file_path)
+                    num_lines = len(doc.paragraphs)
+                else:
+                    num_lines = count_lines(file_path)
+
+                file_stats.append((file_name, size, num_lines))
+
+                # .bat fayllarini tekshirish
+                if file_name.endswith('.bat'):
+                    bat_files.append(file_name)
+
+        return file_stats, bat_files
+    except Exception as e:
+        print(f"Xato ro'y berdi: {e}")
+        return [], []
